@@ -1,4 +1,5 @@
 import uuid
+from datetime import datetime, timezone
 
 from sqlalchemy import Column, Boolean, Numeric, Enum, DateTime
 from sqlalchemy.dialects.postgresql import UUID
@@ -15,4 +16,4 @@ class NotificationPreference(Base):
     enabled = Column(Boolean, default=True)
     min_amount = Column(Numeric(18, 2), default=0)
     created_at = Column(DateTime(timezone=True), server_default="now()")
-    updated_at = Column(DateTime(timezone=True), server_default="now()", onupdate="now()")
+    updated_at = Column(DateTime(timezone=True), server_default="now()", onupdate=lambda: datetime.now(timezone.utc))

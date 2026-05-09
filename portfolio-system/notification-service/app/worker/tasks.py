@@ -28,7 +28,7 @@ SyncSession = sessionmaker(bind=sync_engine)
 )
 def process_notification_event(self, event_data: dict) -> None:
     try:
-        logger.info("processing_notification", task_id=self.request.id, event=event_data)
+        logger.info("processing_notification", task_id=self.request.id, event_data=event_data)
 
         user_id = event_data.get("user_id")
         transaction_id = event_data.get("transaction_id")

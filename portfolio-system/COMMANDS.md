@@ -12,7 +12,7 @@ cp .env.example .env
 # 3. Build and start all services
 docker compose up --build
 
-# Start in background (detached)
+# Start in background (detached)o
 docker compose up --build -d
 
 # Stop everything
